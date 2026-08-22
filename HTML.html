@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahnar Technologies Pvt. Ltd. | AI, ML & Cybersecurity Solutions</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* CSS Variables & Theme Setup */
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #06b6d4;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 0.75rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 9rem 0 5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.2);
+      color: var(--accent);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Section Header */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 5rem 0;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      background: white;
+      color: var(--text-main);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--secondary);
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Tech Stack Section */
+    .tech-section {
+      padding: 5rem 0;
+      background-color: white;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg-light);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      color: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .tech-item:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 5rem 0;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item i {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-top: 0.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+    }
+
+    .copyright {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .contact-wrapper { grid-template-columns: 1fr; padding: 1.5rem; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo-brand">
+        <img src="./src/Logo Final.png" alt="Sahnar Technologies Logo" class="logo-img" />
+        <span>Sahnar Technologies</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tech">Technologies</a></li>
+        <li><a href="#contact" class="btn-primary">Contact Us</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Next-Gen Tech & Security</span>
+        <h1>Pioneering AI Solutions & Enterprise Security</h1>
+        <p>Sahnar Technologies Pvt. Ltd. empowers businesses with custom Artificial Intelligence, Data Insights, and comprehensive Cybersecurity Services.</p>
+        <div class="hero-btns">
+          <a href="#services" class="btn-primary">Explore Services</a>
+          <a href="#contact" class="btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Core Expertise</h2>
+        <p>Comprehensive solutions tailored to modernize and secure your business</p>
+      </div>
+
+      <!-- Service Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Services</button>
+        <button class="filter-btn" data-filter="ai">AI & ML Solutions</button>
+        <button class="filter-btn" data-filter="security">Cybersecurity</button>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="services-grid">
+        <!-- AI Services -->
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>AI/ML Research & Development</h3>
+          <p>Cutting-edge research and deployment of machine learning models tuned to solve specialized domain challenges.</p>
+        </div>
+
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Custom AI Solutions</h3>
+          <p>Tailored artificial intelligence models designed to streamline operational workflows and automate business logic.</p>
+        </div>
+
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Computer Vision Solutions</h3>
+          <p>Advanced image processing and visual analytics solutions for real-time monitoring and object recognition.</p>
+        </div>
+
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Generative AI Solutions</h3>
+          <p>Deploy custom LLMs, modern conversational assistants, and generative content pipelines for your organization.</p>
+        </div>
+
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Data Analytics & Insights</h3>
+          <p>Transform raw enterprise data into actionable business intelligence with predictive analytics frameworks.</p>
+        </div>
+
+        <div class="service-card" data-category="ai">
+          <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>AI Skill Development</h3>
+          <p>Up-skill enterprise teams with hands-on AI training programs designed for modern technical demands.</p>
+        </div>
+
+        <!-- Security Services -->
+        <div class="service-card" data-category="security">
+          <div class="service-icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h3>VAPT Services</h3>
+          <p>Vulnerability Assessment & Penetration Testing to discover and fix security flaws before malicious actors do.</p>
+        </div>
+
+        <div class="service-card" data-category="security">
+          <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Network & Firewall Management</h3>
+          <p>End-to-end network infrastructure protection, active monitoring, and modern firewall administration.</p>
+        </div>
+
+        <div class="service-card" data-category="security">
+          <div class="service-icon"><i class="fa-solid fa-lock"></i></div>
+          <h3>Cybersecurity Solutions</h3>
+          <p>360-degree security frameworks ensuring strict data authorization, compliance, and threat mitigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="tech-section" id="tech">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technologies We Use</h2>
+        <p>Powering software and security with world-class tools</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item"><i class="fa-solid fa-robot"></i> Artificial Intelligence</div>
+        <div class="tech-item"><i class="fa-solid fa-gears"></i> Machine Learning</div>
+        <div class="tech-item"><i class="fa-solid fa-comments"></i> Conversational Chatbots</div>
+        <div class="tech-item"><i class="fa-solid fa-bug-slash"></i> Penetration Testing</div>
+        <div class="tech-item"><i class="fa-solid fa-cubes"></i> Blockchain Technology</div>
+        <div class="tech-item"><i class="fa-solid fa-key"></i> Authorization & Security</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Contact Us</h3>
+          <p>Have a project in mind or need assistance securing your digital infrastructure? Get in touch with our expert team.</p>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-globe"></i>
+            <div>
+              <strong>Official Website</strong>
+              <p>sahnar.in</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn Profile</strong>
+              <p><a href="https://www.linkedin.com/company/105586165/" target="_blank" style="color: var(--primary);">Sahnar Technologies Pvt. Ltd.</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" required placeholder="How can we help you?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo-brand" style="color: white;">
+          <img src="./src/Logo.png" alt="Sahnar Technologies Logo" class="logo-img" />
+          <span>Sahnar Technologies</span>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/105586165/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <p class="copyright">Sahnar Technologies Pvt. Ltd. © 2026. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Interactivity Script -->
+  <script>
+    // Mobile Nav Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Services Filter Functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        serviceCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for reaching out! The team at Sahnar Technologies will contact you shortly.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
