@@ -147,7 +147,7 @@
         </div>
     </section>
 
-    <!-- Careers / Internship Section -->
+    <!-- Careers / Internship Section (Free File Upload via Embedded Google Form) -->
     <section id="careers" class="py-20 bg-slate-950 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -155,50 +155,19 @@
                 <p class="text-slate-400 mt-2">Join our structured 1-month or 3-month internship programs (Hybrid/Remote)[cite: 2].</p>
             </div>
 
-            <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 max-w-3xl mx-auto">
-                <h3 class="text-xl font-bold mb-6 text-center text-blue-400">Internship Application Form</h3>
+            <div class="bg-slate-900 p-4 sm:p-8 rounded-xl border border-slate-800 max-w-4xl mx-auto">
+                <h3 class="text-xl font-bold mb-4 text-center text-blue-400">Internship Application Form</h3>
+                <p class="text-xs text-slate-400 text-center mb-6">Fill out the application below to attach your resume (Uploads store securely in Google Drive).</p>
                 
-                <form action="https://formspree.io/f/mgawqzwr" method="POST" enctype="multipart/form-data" class="space-y-4 text-sm">
-                    <input type="hidden" name="_subject" value="New Internship Application - Sahnar Tech">
-                    
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="text" name="full_name" placeholder="Full Name" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-blue-500">
-                        <input type="email" name="email" placeholder="Email Address" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-blue-500">
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="tel" name="phone" placeholder="Contact Number (+91)" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-blue-500">
-                        <input type="text" name="college" placeholder="College / University Name" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-blue-500">
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <select name="domain" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-slate-300 focus:outline-none focus:border-blue-500">
-                            <option value="">Applying For Domain...</option>
-                            <option value="AI & ML">Artificial Intelligence & Machine Learning</option>
-                            <option value="Data Analytics">Data Analytics</option>
-                            <option value="VAPT">VAPT (Penetration Testing)</option>
-                            <option value="Cyber Security Analyst">Cyber Security Analyst</option>
-                            <option value="Python Development">Python Development</option>
-                        </select>
-                        <select name="duration" required class="w-full bg-slate-800 border border-slate-700 p-3 rounded text-slate-300 focus:outline-none focus:border-blue-500">
-                            <option value="">Preferred Duration...</option>
-                            <option value="1 Month">1 Month</option>
-                            <option value="3 Months">3 Months</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-slate-400 mb-1">Upload Resume (PDF/DOCX):</label>
-                        <input type="file" name="attachment" accept=".pdf,.doc,.docx" required class="w-full bg-slate-800 border border-slate-700 p-2 rounded text-slate-300">
-                    </div>
-                    <div class="flex items-center space-x-2 pt-2">
-                        <input type="checkbox" id="declaration" required class="rounded">
-                        <label for="declaration" class="text-xs text-slate-400">I declare that the information provided is accurate[cite: 2].</label>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition cursor-pointer">Submit Application</button>
-                </form>
+                <!-- Replace the iframe src below with your Google Form Embed Link -->
+                <div class="w-full overflow-hidden rounded-lg bg-white">
+                    <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform?embedded=true" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0">Loading Application Form…</iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (Works with Formspree Endpoint) -->
     <section id="contact" class="py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12">
